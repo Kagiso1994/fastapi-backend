@@ -35,7 +35,7 @@ async def predict_image(model_name: str, file: bytes = File(...)):
     image = preprocess(image)
     predictions = predict(image, model_name)
     
-    return "The image classified is Fire" if predictions[0]<0 else "The image classified is Smoke"
+    return "The image classified is Fire" if predictions[0]<0 else "The image classified is Smoke" 
 
 
 @app.post('/api/predict')
