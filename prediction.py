@@ -1,11 +1,8 @@
 from PIL import Image
 from io import BytesIO
 import tensorflow as tf
-from keras.preprocessing.image import ImageDataGenerator
-from keras.layers import Input, Lambda, Dense, Flatten, Conv2D, MaxPool2D
 from keras.models import Model, load_model
 import keras.utils as image
-from keras.applications import imagenet_utils
 import numpy as np
 from keras.applications.resnet import ResNet50, preprocess_input
 from glob import glob
@@ -44,7 +41,6 @@ def preprocess(input_image_arr):
 def predict(image: np.ndarray, model_name):
     _model = load_my_model(model_name)
     predictions = _model.predict(image)
-    # predictions = imagenet_utils.decode_predictions(predictions)[0][0][1]
     print("Result == ",predictions)
     return predictions
 

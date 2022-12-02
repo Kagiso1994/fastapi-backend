@@ -2,8 +2,6 @@ from fastapi import FastAPI
 from fastapi import UploadFile,File
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-import matplotlib.image as mpimg
-from io import BytesIO
 
 from prediction import predict, preprocess, read_image,load_my_model
 
@@ -25,18 +23,7 @@ def hello_world(name: str):
 
 @app.get('/api/model/load')
 def hello_world(model_name: str):
-    return model_name
-
-@app.post('/api/preprocess')
-async def predict_image(model_name: str, file: bytes = File(...)):
-    img = mpimg.imread(BytesIO(file))
-    lum_img = img[:, :, 0]
-    
-    image = preprocess(image)
-    predictions = predict(image, model_name)
-    
-    return "The image classified is Fire" if predictions[0]<0 else "The image classified is Smoke" 
-
+    return model_name 
 
 @app.post('/api/predict')
 async def predict_image(model_name: str, file: bytes = File(...)):
