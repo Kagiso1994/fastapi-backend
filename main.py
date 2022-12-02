@@ -41,5 +41,5 @@ async def predict_image(model_name: str):
     
     return "The image classified is Fire"
 
-if __name__ == "__main__":
-    uvicorn.run(app, port=8080, host='0.0.0.0')
+# if __name__ == "__main__":
+#     uvicorn.run(app, port=8080, host='0.0.0.0')
