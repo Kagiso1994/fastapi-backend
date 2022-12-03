@@ -1,13 +1,7 @@
-from PIL import Image
 from io import BytesIO
-import tensorflow as tf
-from keras.models import Model, load_model
+from keras.models import load_model
 import keras.utils as image
 import numpy as np
-from keras.applications.resnet import ResNet50, preprocess_input
-from glob import glob
-from datetime import datetime
-import PIL
 
 IMAGE_SIZE = [224,224]
 
